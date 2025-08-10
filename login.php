@@ -269,7 +269,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="developer-credit">
                 <i class="bi bi-code-slash me-1"></i>
                 Developed with ❤️ by <a href="#" data-bs-toggle="modal" data-bs-target="#developerModal">Sir Sanjoy</a>
-                <br><small class="text-muted mt-1">School Computer Lab Management System by Mr. xD v1.0</small>
+                <br><small class="text-muted mt-1">School Computer Lab Management System by Mr. xD v1.1</small>
             </div>
         </div>
     </div>
