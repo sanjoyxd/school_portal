@@ -1,0 +1,10 @@
+mkcert -install
+mkcert dbslab.local 192.168.1.102
+Place them in WAMP’s SSL folder
+copy to
+C:\wamp64\bin\apache\apache2.4.62.1\conf\ssl\
+(If ssl folder doesn’t exist, create it.)
+Copy the two files there.
+Rename them for simplicity:
+dbslab.crt
+dbslab.key
