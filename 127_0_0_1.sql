@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 20, 2025 at 04:25 AM
+-- Generation Time: Aug 21, 2025 at 05:21 PM
 -- Server version: 11.5.2-MariaDB
 -- PHP Version: 8.3.14
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `school_portal_db`
 --
-CREATE DATABASE IF NOT EXISTS `school_portal_db` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `school_portal_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `school_portal_db`;
 
 -- --------------------------------------------------------
@@ -33,12 +33,12 @@ DROP TABLE IF EXISTS `articles`;
 CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
-  `content` text NOT NULL,
+  `content` mediumtext NOT NULL,
   `author` int(11) NOT NULL,
   `date_posted` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `author` (`author`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -51,16 +51,16 @@ CREATE TABLE IF NOT EXISTS `experiments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   `experiment_number` int(11) NOT NULL,
-  `description` text NOT NULL,
-  `aim` text NOT NULL,
-  `task` text NOT NULL,
-  `hint` text DEFAULT NULL,
+  `description` mediumtext NOT NULL,
+  `aim` mediumtext NOT NULL,
+  `task` mediumtext NOT NULL,
+  `hint` mediumtext DEFAULT NULL,
   `figure_path` varchar(255) DEFAULT NULL,
   `class` varchar(20) NOT NULL,
   `file_path` varchar(255) DEFAULT NULL,
   `date_added` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `experiments`
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `experiment_output_files` (
   `uploaded_at` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `submission_id` (`submission_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `experiment_output_files`
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `experiment_submissions` (
   UNIQUE KEY `unique_submission` (`experiment_id`,`student_id`),
   KEY `experiment_id` (`experiment_id`),
   KEY `student_id` (`student_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `experiment_submissions`
@@ -161,7 +161,7 @@ DROP TABLE IF EXISTS `questions`;
 CREATE TABLE IF NOT EXISTS `questions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `test_id` int(11) NOT NULL,
-  `question_text` text NOT NULL,
+  `question_text` mediumtext NOT NULL,
   `option_a` varchar(255) NOT NULL,
   `option_b` varchar(255) NOT NULL,
   `option_c` varchar(255) NOT NULL,
@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `correct_option` char(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `test_id` (`test_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `questions`
@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `results` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `test_id` (`test_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `results`
@@ -228,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `result_answers` (
   PRIMARY KEY (`id`),
   KEY `result_id` (`result_id`),
   KEY `question_id` (`question_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `result_answers`
@@ -259,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `tests` (
   `subject` varchar(50) NOT NULL,
   `test_date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tests`
@@ -284,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `class` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=255 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=255 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
