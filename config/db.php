@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "schooluser";
 $pass = "StrongPassword123"; // WAMP default has no password but here I have
-$db   = "schoolportal";
+$db   = "schoolPortal";
 
 // Create connection
 $conn = new mysqli($host, $user, $pass, $db);
