@@ -129,7 +129,7 @@ if (isset($_SESSION['user_id'])) {
 
 <!-- Footer -->
 <footer>
-    &copy; <?php echo date('Y'); ?> Don Bosco School | Computer Science Department | Developed by Sanjoy Choudhury
+    &copy; <?php echo date('Y'); ?> Don Bosco School | Computer Science Department | Developed by Sir Sanjoy Choudhury
 </footer>
 
 <script src="assets/js/bootstrap.bundle.min.js"></script>
