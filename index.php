@@ -119,7 +119,7 @@ if (isset($_SESSION['user_id'])) {
             Access experiments, take online tests, and explore resources to boost your learning in computer science.
         </p>
         <p>
-            Stay connected and learn smarter — anytime, anywhere within the school network and home.
+            Stay connected and learn smarter — anytime, anywhere within the school network and from home.
         </p>
         <a href="login.php" class="btn welcome-btn">
             <i class="bi bi-box-arrow-in-right me-2"></i> Login to Continue
