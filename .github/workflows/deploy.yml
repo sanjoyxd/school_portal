@@ -1,0 +1,28 @@
+name: 🚀 Deploy to CloudPanel
+
+on:
+  push:
+    branches:
+      - master   # or master, or whichever branch you deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ${{ secrets.DEPLOY_PATH }}
+            git pull origin main
+            # Optional: restart services if needed
+            # systemctl restart php8.2-fpm
+            # systemctl restart nginx
