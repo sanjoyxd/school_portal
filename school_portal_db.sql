@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 10, 2025 at 06:30 PM
+-- Generation Time: Sep 01, 2025 at 06:37 AM
 -- Server version: 11.5.2-MariaDB
 -- PHP Version: 8.3.14
 
@@ -31,12 +31,12 @@ DROP TABLE IF EXISTS `articles`;
 CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
-  `content` text NOT NULL,
+  `content` mediumtext NOT NULL,
   `author` int(11) NOT NULL,
   `date_posted` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `author` (`author`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -49,29 +49,35 @@ CREATE TABLE IF NOT EXISTS `experiments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   `experiment_number` int(11) NOT NULL,
-  `description` text NOT NULL,
-  `aim` text NOT NULL,
-  `task` text NOT NULL,
-  `hint` text DEFAULT NULL,
+  `description` mediumtext NOT NULL,
+  `aim` mediumtext NOT NULL,
+  `task` mediumtext NOT NULL,
+  `hint` mediumtext DEFAULT NULL,
   `figure_path` varchar(255) DEFAULT NULL,
   `class` varchar(20) NOT NULL,
   `file_path` varchar(255) DEFAULT NULL,
   `date_added` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `experiments`
 --
 
 INSERT INTO `experiments` (`id`, `title`, `experiment_number`, `description`, `aim`, `task`, `hint`, `figure_path`, `class`, `file_path`, `date_added`) VALUES
-(11, 'Basic Formatting in LibreOffice or OpenOffice Writer', 1, 'This activity covers page borders, font styling, color changes, subscripts, superscripts, special characters, and list formatting.', 'To practice and apply basic formatting tools in LO or OO Writer for creating well-presented documents.', 'Apply a page border of size 1. Type \"Order of Size 1\" in red, font size 16 pt.\r\nType: O2 + H2 -> H2O and (x + y)2 -> x2 + 2xy + y2 with proper subscript, superscript, and arrow.\r\nWrite 5 lines with a mix of bold, italic, strikethrough, varied font sizes, and styles.\r\nCreate a numbered list and a bulleted list with at least 3 items each, using different styles.', 'Page border: Format, Page Style, Borders, all sides, 1 pt.\r\nSubscript or Superscript: Highlight number, click subscript or superscript button.\r\nArrow: Insert, Special Character.\r\nFont and color changes: Use toolbar.\r\nLists: Use bullet or number icons, right click to change style.', '', '9A', NULL, '2025-08-10 18:15:25'),
+(11, 'Basic Formatting in LibreOffice or OpenOffice Writer', 1, 'This activity covers page borders, font styling, color changes, subscripts, superscripts, special characters, and list formatting.', 'To practice and apply basic formatting tools in LO or OO Writer for creating well-presented documents.', 'Apply a page border of size 1. Type Border of Size 1\" in red, font size 16 pt.\r\nType: O2 + H2 → H2O and (x + y)2 = x2 + 2xy + y2 with proper subscript, superscript, and arrow.\r\nWrite 5 lines with a mix of bold, italic, strikethrough, varied font sizes, and styles.\r\nCreate a numbered list and a bulleted list with at least 3 items each, using different styles.', 'Page border: Format, Page Style, Borders, all sides, 1 pt.\r\nSubscript or Superscript: Highlight number, click subscript or superscript button.\r\nArrow: Insert, Special Character.\r\nFont and color changes: Use toolbar.\r\nLists: Use bullet or number icons, right click to change style.', '', '9A', NULL, '2025-08-10 18:15:25'),
 (4, 'Data Consolidation Practice', 6, 'To learn Data Consolidation', 'Combine marks from multiple tests (from Fig 6.1) to create a summary of total marks per subject.', 'Open OpenOffice Calc.\r\nConsolidate data from sheets: PT 1, PT 2, and PT 3.\r\nCreate a summary sheet displaying total marks for each subject.', 'Use Data Consolidation', 'uploads/experiments/6_1_1754846468.jpg', '10A', NULL, '2025-08-10 17:21:08'),
 (5, 'Subtotal Task', 7, 'To learn how to use sub total', 'Organize and analyse student marks from Fig 7.1 using the subtotal feature feature of LIbre/Open Office Calc.', 'Sort by Student Name\r\nCalculate Total Marks\r\nSum Each Subject\r\nReview Summary Rows', '', 'uploads/experiments/7_1_1754847254.jpg', '10A', NULL, '2025-08-10 17:34:14'),
 (6, 'Create Scenarios in Calc', 8, '', 'To create a dynamic profit estimation model in LibreOffice/OpenOffice Calc using scenarios.', 'Base Data: Enter initial values for \"Base Cost,\" \"Selling Price,\" and \"Quantity Sold\" in your spreadsheet.\r\nFormulas: Calculate \"Total Revenue\" (Selling Price * Quantity Sold) and \"Total Profit\" (Total Revenue - (Base Cost * Quantity Sold)).\r\nCreate 3 Scenarios:\r\nHigh Sales: Set a high quantity sold (e.g., 5000 units).\r\nAverage Sales: Use a moderate quantity (e.g., 2500 units).\r\nLow Sales: Assign a low quantity (e.g., 1000 units).\r\nObserve: Switch between scenarios and note how the \"Total Profit\" dynamically changesbased on the quantity sold.', '', '', '10A', NULL, '2025-08-10 17:45:52'),
 (7, ' 6 Data Consolidation Practice', 6, 'To learn Data Consolidation', 'Combine marks from multiple tests (from Fig 6.1) to create a summary of total marks per subject.', 'Open OpenOffice Calc.\r\nConsolidate data from sheets: PT 1, PT 2, and PT 3.\r\nCreate a summary sheet displaying total marks for each subject.', 'Use Data Consolidation', 'uploads/experiments/6_1_1754848484.jpg', '10B', NULL, '2025-08-10 17:54:44'),
 (8, 'Subtotal Task', 7, 'To learn how to use sub total', 'Organize and analyse student marks from Fig 7.1 using the subtotal feature feature of LIbre/Open Office Calc.', 'Sort by Student Name\r\nCalculate Total Marks\r\nSum Each Subject\r\nReview Summary Rows', '', 'uploads/experiments/7_1_1754848529.jpg', '10B', NULL, '2025-08-10 17:55:29'),
-(9, 'Create Scenarios in Calc', 8, '', 'To create a dynamic profit estimation model in LibreOffice/OpenOffice Calc using scenarios.', 'Base Data: Enter initial values for \"Base Cost,\" \"Selling Price,\" and \"Quantity Sold\" in your spreadsheet.\r\nFormulas: Calculate \"Total Revenue\" (Selling Price * Quantity Sold) and \"Total Profit\" (Total Revenue - (Base Cost * Quantity Sold)).\r\nCreate 3 Scenarios:\r\nHigh Sales: Set a high quantity sold (e.g., 5000 units).\r\nAverage Sales: Use a moderate quantity (e.g., 2500 units).\r\nLow Sales: Assign a low quantity (e.g., 1000 units).\r\nObserve: Switch between scenarios and note how the \"Total Profit\" dynamically changesbased on the quantity sold.', '', '', '10B', NULL, '2025-08-10 17:57:14');
+(9, 'Create Scenarios in Calc', 8, '', 'To create a dynamic profit estimation model in LibreOffice/OpenOffice Calc using scenarios.', 'Base Data: Enter initial values for \"Base Cost,\" \"Selling Price,\" and \"Quantity Sold\" in your spreadsheet.\r\nFormulas: Calculate \"Total Revenue\" (Selling Price * Quantity Sold) and \"Total Profit\" (Total Revenue - (Base Cost * Quantity Sold)).\r\nCreate 3 Scenarios:\r\nHigh Sales: Set a high quantity sold (e.g., 5000 units).\r\nAverage Sales: Use a moderate quantity (e.g., 2500 units).\r\nLow Sales: Assign a low quantity (e.g., 1000 units).\r\nObserve: Switch between scenarios and note how the \"Total Profit\" dynamically changesbased on the quantity sold.', '', '', '10B', NULL, '2025-08-10 17:57:14'),
+(12, 'Goal Seek', 9, '', 'To find the revised interest rate for a Rs. 50,00,000 loan over 25 years with EMI limited to Rs. 50,000 using LO/OO Calc Goal Seek.\r\n', 'Enter loan details and find interest, sum and EMI.\r\nAssume 12% interest rate intially.\r\nApply Goal Seek to set EMI = Rs. 50,000 by changing the interest rate.\r\nNote the revised interest rate.', 'Interest = (Principal x Rate of Interest x Time)/100\r\nSum = Principl + Interest\r\nEMI = Sum/Total_Month', 'uploads/experiments/9_1_1755500411.png', '10B', NULL, '2025-08-18 07:00:11'),
+(13, 'Goal Seek', 9, '', 'To find the revised interest rate for a Rs. 50,00,000 loan over 25 years with EMI limited to Rs. 50,000 using LO/OO Calc Goal Seek.', 'Enter loan details and find interest, sum and EMI.\r\nAssume 12% interest rate intially.\r\nApply Goal Seek to set EMI = Rs. 50,000 by changing the interest rate.\r\nNote the revised interest rate.', 'Interest = (Principal x Rate of Interest x Time)/100\r\nSum = Principl + Interest\r\nEMI = Sum/Total_Month', 'uploads/experiments/9_1_1755588081.png', '10A', NULL, '2025-08-19 07:21:21'),
+(14, 'Tables in Writer', 2, '', 'To create a school timetable using a table in LO or OO Writer with modern formatting.', 'Insert a table with suitable rows and columns for a school timetable\r\nAdd headings for days and periods\r\nApply modern formatting: dark background with light text for headers, light background with dark text for data\r\nFill in the timetable and save the document', 'Use the Table menu and select Insert Table to create your table\r\nSelect the header row and use Table Properties or toolbar options to apply a dark background and light text\r\nFor the rest of the table, choose a light background and dark text for better contrast\r\nUse bold and center alignment to improve readability\r\nAdjust column widths to fit the text neatly\r\nSave your document regularly to avoid losing work', '', '9A', NULL, '2025-08-20 04:20:47'),
+(16, 'Macro as Function', 10, '', 'To create a LO/OO Calc Macro Function in BASIC that insert Name, Address and Phone number in the sheet.', 'Create a macro as Function with name \"insNameD\"\r\nuse the Macro three time in the sheet.', '', '', '10A', NULL, '2025-08-22 04:28:25'),
+(17, 'Macro as Function', 10, '', 'To create a LO/OO Calc Macro Function in BASIC that insert Name, Address and Phone number in the sheet.', '\r\nCreate macro as a function \"insNameAd\"\r\nUse the function three times in the sheet.', '', '', '10B', NULL, '2025-08-22 04:29:04'),
+(18, 'Alignment, Formatting, Indents, Tabs, and Columns', 3, '', 'To create a well-formatted question paper using proper alignment, formatting, indentation, tab settings, and multiple columns in LibreOffice/OpenOffice Writer.', 'Type the question paper header and align it to the center.\r\nUse tab stops to separate \"Time\" and \"Maximum Marks\" on the same line.\r\nAdd Section A title and instructions with bold formatting.\r\nType at least 2 MCQs using proper option alignment with tabs.\r\nConvert the MCQ section into four columns.\r\nSave the file with an appropriate name.', 'Use the Tab key instead of spaces to align text neatly.\r\nGo to Format > Paragraph to set alignment (Left, Center, Justify).\r\nUse Format > Columns to create multiple columns for MCQs.\r\nHighlight headings and use Bold (Ctrl + B) for emphasis.\r\nCheck your spacing and alignment before saving the file.', 'uploads/experiments/3_1_1756698313.png', '9A', NULL, '2025-09-01 03:45:13');
 
 -- --------------------------------------------------------
 
@@ -88,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `experiment_output_files` (
   `uploaded_at` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `submission_id` (`submission_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `experiment_output_files`
@@ -111,7 +117,28 @@ INSERT INTO `experiment_output_files` (`id`, `submission_id`, `file_path`, `file
 (19, 4, 'uploads/experiment_outputs/102_3_1754840545_10.png', 'ChatGPT Image Jul 31, 2025, 11_57_45 AM.png', '2025-08-10 15:42:25'),
 (20, 4, 'uploads/experiment_outputs/102_3_1754840545_11.png', '20250730_082502_0000.png', '2025-08-10 15:42:25'),
 (21, 4, 'uploads/experiment_outputs/102_3_1754840545_12.pdf', 'e-EPIC_GML1428791.pdf', '2025-08-10 15:42:25'),
-(22, 4, 'uploads/experiment_outputs/102_3_1754840545_13.jpeg', 'Dark Colour Lehenga for Cocktail Party.jpeg', '2025-08-10 15:42:25');
+(22, 4, 'uploads/experiment_outputs/102_3_1754840545_13.jpeg', 'Dark Colour Lehenga for Cocktail Party.jpeg', '2025-08-10 15:42:25'),
+(24, 6, 'uploads/experiment_outputs/110_11_1755488108_1.PNG', 'output1.1.PNG', '2025-08-18 03:35:08'),
+(37, 19, 'uploads/experiment_outputs/111_11_1755837227_1.PNG', 'odt jidan.PNG', '2025-08-22 04:33:47'),
+(27, 9, 'uploads/experiment_outputs/113_11_1755489214_1.PNG', 'Output 1.PNG', '2025-08-18 03:53:34'),
+(29, 11, 'uploads/experiment_outputs/118_11_1755836449_1.PNG', 'Project IT 1.1.PNG', '2025-08-22 04:20:49'),
+(30, 12, 'uploads/experiment_outputs/103_11_1755836570_1.PNG', 'Project1.1.PNG', '2025-08-22 04:22:50'),
+(31, 13, 'uploads/experiment_outputs/104_11_1755836588_1.PNG', 'output1.1.PNG', '2025-08-22 04:23:09'),
+(32, 14, 'uploads/experiment_outputs/116_11_1755836651_1.PNG', 'OUTPUT1.1.PNG', '2025-08-22 04:24:11'),
+(35, 17, 'uploads/experiment_outputs/102_11_1755837052_1.png', 'EXPERIMENT 1 OUTPUT.png', '2025-08-22 04:30:52'),
+(34, 16, 'uploads/experiment_outputs/112_11_1755836754_1.PNG', 'Jon project 1.1.PNG', '2025-08-22 04:25:54'),
+(36, 18, 'uploads/experiment_outputs/119_11_1755837186_1.PNG', 'OUTPUT1.1.PNG', '2025-08-22 04:33:06'),
+(38, 20, 'uploads/experiment_outputs/117_11_1756267888_1.png', 'Output1.2.1.png', '2025-08-27 04:11:28'),
+(39, 21, 'uploads/experiment_outputs/126_11_1756268519_1.PNG', 'SHIVESH1.1.PNG', '2025-08-27 04:21:59'),
+(40, 23, 'uploads/experiment_outputs/103_14_1756697859_1.PNG', 'shit.PNG', '2025-09-01 03:37:39'),
+(41, 24, 'uploads/experiment_outputs/102_14_1756698227_1.PNG', 'abhi.PNG', '2025-09-01 03:43:47'),
+(42, 22, 'uploads/experiment_outputs/104_14_1756698542_1.PNG', 'output2.2.PNG', '2025-09-01 03:49:02'),
+(43, 25, 'uploads/experiment_outputs/123_14_1756698572_1.PNG', 'Capture.PNG', '2025-09-01 03:49:32'),
+(44, 26, 'uploads/experiment_outputs/116_14_1756698704_1.PNG', 'OUTPUT2.2.PNG', '2025-09-01 03:51:44'),
+(45, 27, 'uploads/experiment_outputs/106_14_1756698843_1.PNG', 'OUTPUT 2.PNG', '2025-09-01 03:54:03'),
+(46, 28, 'uploads/experiment_outputs/120_14_1756698862_1.PNG', 'Rahul Das Time Table.PNG', '2025-09-01 03:54:22'),
+(47, 29, 'uploads/experiment_outputs/107_14_1756698868_1.PNG', 'OUTPUT 2.PNG', '2025-09-01 03:54:28'),
+(48, 30, 'uploads/experiment_outputs/101_11_1756698910_1.png', 'EXPERIMENT 1 OUTPUT.png', '2025-09-01 03:55:10');
 
 -- --------------------------------------------------------
 
@@ -132,7 +159,34 @@ CREATE TABLE IF NOT EXISTS `experiment_submissions` (
   UNIQUE KEY `unique_submission` (`experiment_id`,`student_id`),
   KEY `experiment_id` (`experiment_id`),
   KEY `student_id` (`student_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `experiment_submissions`
+--
+
+INSERT INTO `experiment_submissions` (`id`, `experiment_id`, `student_id`, `output_file`, `total_files`, `submitted_at`, `updated_at`) VALUES
+(6, 11, 110, 'multiple_files', 1, '2025-08-18 03:35:08', '2025-08-18 03:35:08'),
+(19, 11, 111, 'multiple_files', 1, '2025-08-22 04:33:47', '2025-08-22 04:33:47'),
+(9, 11, 113, 'multiple_files', 1, '2025-08-18 03:53:34', '2025-08-18 03:53:34'),
+(11, 11, 118, 'multiple_files', 1, '2025-08-22 04:20:49', '2025-08-22 04:20:49'),
+(12, 11, 103, 'multiple_files', 1, '2025-08-22 04:22:50', '2025-08-22 04:22:50'),
+(13, 11, 104, 'multiple_files', 1, '2025-08-22 04:23:08', '2025-08-22 04:23:09'),
+(14, 11, 116, 'multiple_files', 1, '2025-08-22 04:24:11', '2025-08-22 04:24:11'),
+(17, 11, 102, 'multiple_files', 1, '2025-08-22 04:30:52', '2025-08-22 04:30:52'),
+(16, 11, 112, 'multiple_files', 1, '2025-08-22 04:25:54', '2025-08-22 04:25:54'),
+(18, 11, 119, 'multiple_files', 1, '2025-08-22 04:33:06', '2025-08-22 04:33:06'),
+(20, 11, 117, 'multiple_files', 1, '2025-08-27 04:11:28', '2025-08-27 04:11:28'),
+(21, 11, 126, 'multiple_files', 1, '2025-08-27 04:21:59', '2025-08-27 04:21:59'),
+(22, 14, 104, 'multiple_files', 1, '2025-08-27 04:35:20', '2025-09-01 03:49:02'),
+(23, 14, 103, 'multiple_files', 1, '2025-09-01 03:37:39', '2025-09-01 03:37:39'),
+(24, 14, 102, 'multiple_files', 1, '2025-09-01 03:43:47', '2025-09-01 03:43:47'),
+(25, 14, 123, 'multiple_files', 1, '2025-09-01 03:49:32', '2025-09-01 03:49:32'),
+(26, 14, 116, 'multiple_files', 1, '2025-09-01 03:51:44', '2025-09-01 03:51:44'),
+(27, 14, 106, 'multiple_files', 1, '2025-09-01 03:54:03', '2025-09-01 03:54:03'),
+(28, 14, 120, 'multiple_files', 1, '2025-09-01 03:54:22', '2025-09-01 03:54:22'),
+(29, 14, 107, 'multiple_files', 1, '2025-09-01 03:54:28', '2025-09-01 03:54:28'),
+(30, 11, 101, 'multiple_files', 1, '2025-09-01 03:55:10', '2025-09-01 03:55:10');
 
 -- --------------------------------------------------------
 
@@ -144,7 +198,7 @@ DROP TABLE IF EXISTS `questions`;
 CREATE TABLE IF NOT EXISTS `questions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `test_id` int(11) NOT NULL,
-  `question_text` text NOT NULL,
+  `question_text` mediumtext NOT NULL,
   `option_a` varchar(255) NOT NULL,
   `option_b` varchar(255) NOT NULL,
   `option_c` varchar(255) NOT NULL,
@@ -152,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `correct_option` char(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `test_id` (`test_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `questions`
@@ -180,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `results` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `test_id` (`test_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `results`
@@ -211,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `result_answers` (
   PRIMARY KEY (`id`),
   KEY `result_id` (`result_id`),
   KEY `question_id` (`question_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `result_answers`
@@ -242,7 +296,7 @@ CREATE TABLE IF NOT EXISTS `tests` (
   `subject` varchar(50) NOT NULL,
   `test_date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tests`
@@ -267,7 +321,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `class` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=255 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=255 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
@@ -447,7 +501,6 @@ INSERT INTO `users` (`id`, `username`, `password`, `role`, `class`) VALUES
 (242, '10B42', '$2y$10$XnTJmta7idJIs3IRS/nzzub6rvr0N.VjbJxIHkxkoLzbTYK8kxGFa', 'student', '10B'),
 (243, '10B43', '$2y$10$XnTJmta7idJIs3IRS/nzzub6rvr0N.VjbJxIHkxkoLzbTYK8kxGFa', 'student', '10B'),
 (244, '10B44', '$2y$10$XnTJmta7idJIs3IRS/nzzub6rvr0N.VjbJxIHkxkoLzbTYK8kxGFa', 'student', '10B'),
-(245, '10B45', '$2y$10$XnTJmta7idJIs3IRS/nzzub6rvr0N.VjbJxIHkxkoLzbTYK8kxGFa', 'student', '10B'),
 (246, '10B46', '$2y$10$XnTJmta7idJIs3IRS/nzzub6rvr0N.VjbJxIHkxkoLzbTYK8kxGFa', 'student', '10B'),
 (247, '10B47', '$2y$10$XnTJmta7idJIs3IRS/nzzub6rvr0N.VjbJxIHkxkoLzbTYK8kxGFa', 'student', '10B'),
 (248, '10B48', '$2y$10$XnTJmta7idJIs3IRS/nzzub6rvr0N.VjbJxIHkxkoLzbTYK8kxGFa', 'student', '10B'),
